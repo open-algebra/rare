@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.30)
 project(rare)
 
 option(RARE_BUILD_SAMPLE "Builds the sample application" OFF)
@@ -14,8 +14,6 @@ FetchContent_Declare(
         GIT_TAG v3.8.0
         FIND_PACKAGE_ARGS
 )
-
-FetchContent_MakeAvailable(Catch2)
 
 FetchContent_Declare(
         OASIS
