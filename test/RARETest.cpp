@@ -5,6 +5,7 @@
 
 import rare.core;
 
-TEST_CASE("Basic test") {
+TEST_CASE("Basic test")
+{
     REQUIRE(rare::hello() == "Hello, World!");
 }

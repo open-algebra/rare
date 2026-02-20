@@ -3,15 +3,14 @@
 //
 module;
 
-#include <string>
 #include <print>
+#include <string>
 
 export module rare.core;
 
-namespace rare
+namespace rare {
+export auto hello() -> std::string
 {
-   export auto hello() -> std::string
-   {
-      return "Hello, World!";
-   }
+    return "Hello, World!";
+}
 }
