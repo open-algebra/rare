@@ -6,7 +6,7 @@ target_sources(RARETests PRIVATE
 target_build_strict(RARETests)
 target_link_libraries(RARETests PRIVATE RARE Catch2::Catch2WithMain)
 
-if (NOT Catch2_FOUND)
+if (DEFINED catch2_SOURCE_DIR) # Only defined if obtained via FetchContent and not find_package
     list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
 endif ()
 
