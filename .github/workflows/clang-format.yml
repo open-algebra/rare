@@ -1,0 +1,44 @@
+# ##############################################################################
+# OASIS: Open Algebra Software for Inferring Solutions
+#
+# clang-format.yml
+# ##############################################################################
+
+name: Clang Format
+
+on:
+    pull_request:
+        branches: [ "master" ]
+    workflow_dispatch:
+
+jobs:
+    format:
+        runs-on: ubuntu-latest
+        container: ghcr.io/open-algebra/gh-actions:main
+
+        steps:
+            # Checks out the repository.
+          - name: Checkout repository
+            uses: actions/checkout@v4
+
+            # Commits and pushes changes.
+          - name: Format
+            if: |
+                github.event_name == 'workflow_dispatch'
+            run: |
+                clang-format -i src/**.cppm sample/**.cpp
+              
+          - name: Commit and Push
+            if: |
+                github.event_name == 'workflow_dispatch'
+            run: |
+                git config user.name "github-actions"
+                git config user.email "github-actions@github.com"
+                git commit -am "[Actions] Run clang-format"
+                git push
+
+            # Fails if the workflow hasn't been run in the contributor's fork.
+          - name: Reject if not formatted
+            if: |
+                github.event_name == 'pull_request'
+            run: clang-format -n -Werror src/**.cppm sample/**.cpp
