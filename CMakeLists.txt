@@ -12,17 +12,17 @@ FetchContent_Declare(
         Catch2
         GIT_REPOSITORY https://github.com/catchorg/Catch2.git
         GIT_TAG v3.8.0
-        FIND_PACKAGE_ARGS REQUIRED
+        FIND_PACKAGE_ARGS
 )
 
 FetchContent_MakeAvailable(Catch2)
 
 FetchContent_Declare(
         OASIS
-        GIT_REPOSITORY https://github.com/open-algera/Oasis
+        GIT_REPOSITORY https://github.com/open-algebra/Oasis.git
 )
 
-FetchContent_Declare(OASIS)
+FetchContent_MakeAvailable(OASIS Catch2)
 
 add_subdirectory(src)
 
