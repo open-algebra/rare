@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.1)
+cmake_minimum_required(VERSION 3.31)
 project(rare)
 
 option(RARE_BUILD_SAMPLE "Builds the sample application" OFF)
