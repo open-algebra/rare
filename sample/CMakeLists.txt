@@ -4,5 +4,5 @@ target_sources(RARESample PRIVATE
     main.cpp
 )
 
-target_link_libraries(RARESample PRIVATE RARE SDL3::SDL3)
+target_link_libraries(RARESample PRIVATE RARE SDL3::SDL3 spdlog::spdlog)
 target_build_strict(RARESample)

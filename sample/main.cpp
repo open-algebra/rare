@@ -1,11 +1,11 @@
 //
 // Created by Matthew McCall on 2/3/26.
 //
-#include <print>
-
 #define SDL_MAIN_USE_CALLBACKS
 #include <SDL3/SDL_main.h>
 #include <SDL3/SDL_render.h>
+
+#include <spdlog/spdlog.h>
 
 import rare.core;
 
@@ -23,10 +23,10 @@ struct AppState {
 
 auto SDL_AppInit(void** appstate, int, char**) -> SDL_AppResult
 {
-    std::print("Hello, World!");
+    spdlog::info("Hello, World!");
 
     if (not SDL_Init(SDL_INIT_VIDEO)) {
-        std::print("Failed to initialize SDL: {}", SDL_GetError());
+        spdlog::error("Failed to initialize SDL: {}", SDL_GetError());
         return SDL_APP_FAILURE;
     }
 
@@ -34,7 +34,7 @@ auto SDL_AppInit(void** appstate, int, char**) -> SDL_AppResult
     SDL_Renderer* renderer = nullptr;
 
     if (not SDL_CreateWindowAndRenderer("RARE Sample", 800, 600, SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY, &window, &renderer)) {
-        std::print("Failed to create window and/or renderer: {}", SDL_GetError());
+        spdlog::error("Failed to create window and/or renderer: {}", SDL_GetError());
         return SDL_APP_FAILURE;
     }
 
