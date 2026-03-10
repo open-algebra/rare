@@ -7,4 +7,5 @@ target_sources(RARE PUBLIC
         RARE.cppm)
 
 target_compile_features(RARE PUBLIC cxx_std_23)
+target_link_libraries(RARE PUBLIC Oasis::Oasis SDL3_ttf::SDL3_ttf)
 target_build_strict(RARE)

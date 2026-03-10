@@ -16,11 +16,27 @@ FetchContent_Declare(
 )
 
 FetchContent_Declare(
+        SDL3
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+        GIT_TAG release-3.4.2
+        FIND_PACKAGE_ARGS
+)
+
+FetchContent_Declare(
+        SDL3_ttf
+        GIT_REPOSITORY https://github.com/libsdl-org/SDL_ttf.git
+        GIT_TAG release-3.2.2
+        FIND_PACKAGE_ARGS
+)
+
+FetchContent_Declare(
         OASIS
         GIT_REPOSITORY https://github.com/open-algebra/Oasis.git
 )
 
-FetchContent_MakeAvailable(OASIS Catch2)
+FetchContent_MakeAvailable(Catch2 SDL3 SDL3_ttf OASIS)
+
+include(cmake/FetchBoost.cmake)
 
 add_subdirectory(src)
 
