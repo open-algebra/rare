@@ -6,6 +6,7 @@ option(RARE_BUILD_TESTS "Builds the test cases" ON)
 option(RARE_BUILD_STRICT "Compiles with all compiler warnings, and warnings as errors" ON)
 
 include(cmake/BuildStrict.cmake)
+include(cmake/AppPackageResources.cmake)
 include(FetchContent)
 
 FetchContent_Declare(
