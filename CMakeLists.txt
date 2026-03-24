@@ -9,6 +9,8 @@ include(cmake/BuildStrict.cmake)
 include(cmake/AppPackageResources.cmake)
 include(FetchContent)
 
+include(cmake/FetchBoost.cmake)
+
 FetchContent_Declare(
         Catch2
         GIT_REPOSITORY "https://github.com/catchorg/Catch2.git"
@@ -48,8 +50,6 @@ FetchContent_Declare(
 )
 
 FetchContent_MakeAvailable(Catch2 GSL SDL3 SDL3_ttf OASIS)
-
-include(cmake/FetchBoost.cmake)
 
 add_subdirectory(src)
 
