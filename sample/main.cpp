@@ -7,7 +7,7 @@
 
 #include <spdlog/spdlog.h>
 
-import rare.core;
+import RARE.Core;
 
 extern "C" {
 auto SDL_AppInit(void**, int, char**) -> SDL_AppResult;

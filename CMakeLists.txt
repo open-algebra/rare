@@ -11,15 +11,23 @@ include(FetchContent)
 
 FetchContent_Declare(
         Catch2
-        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG v3.8.0
+        GIT_REPOSITORY "https://github.com/catchorg/Catch2.git"
+        GIT_TAG v3.12.0
+        EXCLUDE_FROM_ALL
+        FIND_PACKAGE_ARGS CONFIG
+)
+
+FetchContent_Declare(
+        GSL
+        GIT_REPOSITORY "https://github.com/gsl-lite/gsl-lite.git"
+        GIT_TAG v1.1.0
         EXCLUDE_FROM_ALL
         FIND_PACKAGE_ARGS CONFIG
 )
 
 FetchContent_Declare(
         SDL3
-        GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+        GIT_REPOSITORY "https://github.com/libsdl-org/SDL.git"
         GIT_TAG release-3.4.2
         EXCLUDE_FROM_ALL
         FIND_PACKAGE_ARGS CONFIG
@@ -27,19 +35,19 @@ FetchContent_Declare(
 
 FetchContent_Declare(
         SDL3_ttf
-        GIT_REPOSITORY https://github.com/libsdl-org/SDL_ttf.git
+        GIT_REPOSITORY "https://github.com/libsdl-org/SDL_ttf.git"
         GIT_TAG release-3.2.2
         EXCLUDE_FROM_ALL
         FIND_PACKAGE_ARGS CONFIG
 )
 
-
 FetchContent_Declare(
         OASIS
-        GIT_REPOSITORY https://github.com/open-algebra/Oasis.git
+        GIT_REPOSITORY "https://github.com/open-algebra/Oasis.git"
+        GIT_TAG master
 )
 
-FetchContent_MakeAvailable(Catch2 SDL3 SDL3_ttf OASIS)
+FetchContent_MakeAvailable(Catch2 GSL SDL3 SDL3_ttf OASIS)
 
 include(cmake/FetchBoost.cmake)
 
