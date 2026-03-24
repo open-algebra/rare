@@ -65,6 +65,7 @@ jobs:
                 -DCMAKE_CXX_COMPILER=${{ matrix.cpp_compiler }}
                 -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
                 -DRARE_BUILD_PARANOID=ON
+                -DSDL_UNIX_CONSOLE_BUILD=ON
                 .
 
             # Builds Oasis with the given configuration.
