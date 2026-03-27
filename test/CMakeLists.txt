@@ -11,10 +11,10 @@ if (DEFINED catch2_SOURCE_DIR) # Only defined if obtained via FetchContent and n
 endif ()
 
 add_custom_command(TARGET RARETests POST_BUILD
-  COMMAND ${CMAKE_COMMAND} -E copy_if_different
-  $<TARGET_RUNTIME_DLLS:RARETests>
-  $<TARGET_FILE_DIR:RARETests>
-  COMMAND_EXPAND_LISTS)
+  COMMAND_EXPAND_LISTS
+  COMMAND $<IF:$<BOOL:$<TARGET_RUNTIME_DLLS:RARETests>>,
+    ${CMAKE_COMMAND} -E copy_if_different $<TARGET_RUNTIME_DLLS:RARETests> $<TARGET_FILE_DIR:RARETests>,
+    ${CMAKE_COMMAND} -E echo "No runtime DLLs to copy.">)
 
 include(CTest)
 include(Catch)
