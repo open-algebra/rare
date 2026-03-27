@@ -47,9 +47,12 @@ FetchContent_Declare(
         OASIS
         GIT_REPOSITORY "https://github.com/open-algebra/Oasis.git"
         GIT_TAG master
+        EXCLUDE_FROM_ALL
 )
 
-FetchContent_MakeAvailable(Catch2 GSL SDL3 SDL3_ttf OASIS)
+FetchContent_MakeAvailable(Catch2 GSL SDL3 SDL3_ttf)
+set(BUILD_SHARED_LIBS OFF)
+FetchContent_MakeAvailable(OASIS)
 
 add_subdirectory(src)
 
