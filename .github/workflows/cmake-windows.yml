@@ -46,7 +46,7 @@ jobs:
                 -B ${{ steps.strings.outputs.build-dir }}
                 -S ${{ github.workspace }}
                 -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-                -DRARE_BUILD_PARANOID=ON
+                -DRARE_BUILD_STRICT=ON
 
             # Builds Oasis with the given configuration.
           - name: Build RARE
@@ -62,7 +62,7 @@ jobs:
                 cmake
                 --build ${{ steps.strings.outputs.build-dir }}
                 --config ${{ matrix.build_type }}
-                --target OasisTests
+                --target RARETests
 
             # Runs the tests registered to CTest by CMake.
           - name: Test

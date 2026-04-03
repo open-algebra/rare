@@ -2,13 +2,12 @@ module;
 
 #include <string>
 
-#include <boost/leaf.hpp>
 #include <SDL3/SDL_error.h>
+#include <boost/leaf.hpp>
 
 export module RARE.Types;
 
-namespace rare
-{
+namespace rare {
 
 export template <typename T>
 using Result = boost::leaf::result<T>;
@@ -21,7 +20,7 @@ auto NewError(Args&&... args) -> Error
     return boost::leaf::new_error(std::forward<Args>(args)...);
 }
 
-export template<typename T, auto CreateFunc, auto DestroyFunc>
+export template <typename T, auto CreateFunc, auto DestroyFunc>
 class RAII_Wrapper {
 public:
     template <typename... Args>
@@ -65,7 +64,10 @@ public:
     }
 
 private:
-    explicit RAII_Wrapper(T* underlying) : m_underlying { underlying } {}
+    explicit RAII_Wrapper(T* underlying)
+        : m_underlying { underlying }
+    {
+    }
 
     T* m_underlying;
 };

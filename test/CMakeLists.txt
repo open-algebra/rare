@@ -10,6 +10,8 @@ if (DEFINED catch2_SOURCE_DIR) # Only defined if obtained via FetchContent and n
     list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
 endif ()
 
+target_copy_vendored_deps(RARETests)
+
 include(CTest)
 include(Catch)
 
