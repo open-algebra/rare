@@ -6,9 +6,9 @@ module;
 #include <print>
 #include <string>
 
+#include <SDL3_ttf/SDL_ttf.h>
 #include <boost/leaf.hpp>
 #include <gsl-lite/gsl-lite.hpp>
-#include <SDL3_ttf/SDL_ttf.h>
 
 #include "Oasis/Expression.hpp"
 
@@ -32,7 +32,7 @@ export auto RenderToTexture(const Oasis::Expression&, SDL_Texture* texture, SDL_
     SDL_SetRenderDrawColorFloat(renderer, 0.0f, 1.0f, 0.0f, 1.0f);
     SDL_RenderClear(renderer);
     SDL_RenderPresent(renderer);
-    
+
     SDL_SetRenderTarget(renderer, nullptr);
 
     TTF_Quit();
