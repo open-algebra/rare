@@ -11,6 +11,18 @@ Additionally the following are required:
 
 <small>*can be downloaded at configure time automatically by CMake</small>
 
+## Runtime DLL Copying (Windows)
+When executables are built inside this project, RARE attaches a post-build step that copies runtime DLLs for linked shared dependencies next to the executable.
+
+For downstream projects that include RARE via `add_subdirectory(...)`, call this helper after defining and linking your executable:
+
+```cmake
+target_link_libraries(MyApp PRIVATE RARE)
+target_copy_vendored_deps(MyApp)
+```
+
+This helper is a no-op on non-Windows platforms.
+
 ## Features
 - Realtime rendering of mathematical expressions
 - Support for a wide range of mathematical functions and operators

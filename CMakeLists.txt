@@ -7,6 +7,7 @@ option(RARE_BUILD_STRICT "Compiles with all compiler warnings, and warnings as e
 
 include(cmake/BuildStrict.cmake)
 include(cmake/AppPackageResources.cmake)
+include(cmake/TargetCopyVendoredDeps.cmake)
 include(FetchContent)
 
 include(cmake/FetchBoost.cmake)
