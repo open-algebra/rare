@@ -51,6 +51,14 @@ FetchContent_Declare(
         EXCLUDE_FROM_ALL
 )
 
+FetchContent_Declare(
+        yoga
+        GIT_REPOSITORY "https://github.com/facebook/yoga.git"
+        GIT_TAG         v3.2.1
+        EXCLUDE_FROM_ALL
+)
+
+FetchContent_MakeAvailable(Catch2 GSL SDL3 SDL3_ttf OASIS yoga)
 FetchContent_MakeAvailable(Catch2 GSL SDL3 SDL3_ttf)
 set(BUILD_SHARED_LIBS OFF)
 FetchContent_MakeAvailable(OASIS)
